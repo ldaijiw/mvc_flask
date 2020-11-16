@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, redirect, url_for
 
 # create an instance of our app, with __name__ passed as arg
 
@@ -13,8 +13,8 @@ students = [
 @app.route("/")
 def home():
     return "<h1>Hello World</h1>"
-
 # this function will run when the URL/API is accessed
+
 
 # Creating our own API to display data on the specific route/URL/Endpoint/API
 # will add URL to http://127.0.0.1:5000/api/v1/student/data
@@ -23,6 +23,34 @@ def customised_api():
     # Extact Transform Load
     # Transforms data into JSON
     return jsonify(students)
+
+
+
+@app.route("/error/")
+def greet_user():
+    return "An error occurred, sorry"
+
+# module to redirect user back to specific page
+@app.route("/redirectme/")
+def redirect_me():
+    return redirect(url_for(greet_user))
+
+# if any error occurs then redirects to error message page
+@app.errorhandler(Exception)
+def error_occured(error):
+    return redirect('/error/')
+
+@app.route("/welcome/")
+def error_message():
+    return "Welcome to eng74"
+
+
+# taking arguments
+@app.route("/user/<username>/")
+def welcome_user(username):
+    return f"Welcome {username}"
+
+
 
 
 if __name__ == "__main__":
