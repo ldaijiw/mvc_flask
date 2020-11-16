@@ -5,4 +5,15 @@
 <p>
     This is the index page
 </p>
+
+<div id="demo"></div>
+
+<script>
+var x ="", i;
+for (i=1; i<=10; i++) {
+  x = x + "<h5>Text " + i + "</h5>";
+}
+document.getElementById("demo").innerHTML = x;
+</script>
+
 {% endblock %}

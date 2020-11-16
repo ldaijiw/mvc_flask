@@ -42,7 +42,7 @@ def error_occured(error):
 
 @app.route("/error/")
 def error_message():
-    return "An error occurred, sorry"
+    return render_template("error.html")
 
 # taking arguments
 @app.route("/user/<username>/")
