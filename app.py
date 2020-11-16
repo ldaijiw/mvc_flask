@@ -12,7 +12,7 @@ students = [
 # single forward slash indicates home (localhost:5000 is default port for Flask)
 @app.route("/")
 def home():
-    return "<h1>Hello World</h1>"
+    return render_template("home.html")
 # this function will run when the URL/API is accessed
 
 
@@ -38,7 +38,7 @@ def redirect_me():
 # if any error occurs then redirects to error message page
 @app.errorhandler(Exception)
 def error_occured(error):
-    return redirect(url_for(error_message))
+    return redirect(url_for("error_message"))
 
 @app.route("/error/")
 def error_message():
@@ -53,6 +53,10 @@ def welcome_user(username):
 @app.route("/index/")
 def index():
     return render_template("index.html")
+
+@app.route("/login/")
+def login():
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
