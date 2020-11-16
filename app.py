@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, redirect, url_for
+from flask import Flask, jsonify, redirect, url_for, render_template
 
 # create an instance of our app, with __name__ passed as arg
 
@@ -30,7 +30,6 @@ def greet_user():
     return "Welcome to eng74"
 
 
-
 # module to redirect user back to specific page
 @app.route("/redirectme/")
 def redirect_me():
@@ -51,6 +50,9 @@ def welcome_user(username):
     return f"Welcome {username}"
 
 
+@app.route("/index/")
+def index():
+    return render_template("index.html")
 
 
 if __name__ == "__main__":

@@ -52,6 +52,8 @@ from flask import Flask, jsonify, redirect, url_for
 app = Flask(__name__)
 ```
 
+### Flask Features
+
 **JSONIFY**
 - Return JSON with ``jsonify``
 ```python
@@ -76,7 +78,7 @@ def redirect_me():
 ```
 
 **ERROR REDIRECTING**
-- Use ``app.errorhandler(Excpetion)`` to redirect to a given page in case of any errors
+- Use ``app.errorhandler(Exception)`` to redirect to a given page in case of any errors
 ```python
 # if any error occurs then redirects to error message page
 @app.errorhandler(Exception)
@@ -96,3 +98,14 @@ def error_message():
 def welcome_user(username):
     return f"Welcome {username}"
 ```
+
+### Using HTML
+
+- Naming conventions are essential
+- Require to create a template folder in directory
+- Flask looks for templates folder and anything inside the folder 
+- Create index html inside templates folder
+
+
+**USING BOOTSTRAP**
+- 
