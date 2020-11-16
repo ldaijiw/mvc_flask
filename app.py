@@ -25,10 +25,11 @@ def customised_api():
     return jsonify(students)
 
 
-
-@app.route("/error/")
+@app.route("/welcome/")
 def greet_user():
-    return "An error occurred, sorry"
+    return "Welcome to eng74"
+
+
 
 # module to redirect user back to specific page
 @app.route("/redirectme/")
@@ -38,12 +39,11 @@ def redirect_me():
 # if any error occurs then redirects to error message page
 @app.errorhandler(Exception)
 def error_occured(error):
-    return redirect('/error/')
+    return redirect(url_for(error_message))
 
-@app.route("/welcome/")
+@app.route("/error/")
 def error_message():
-    return "Welcome to eng74"
-
+    return "An error occurred, sorry"
 
 # taking arguments
 @app.route("/user/<username>/")
