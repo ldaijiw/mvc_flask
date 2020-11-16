@@ -27,6 +27,9 @@ MVC is a framework used for web development
 
 - Display data from Python Flask to specific API call/URL/endpoint
 
+
+## Flask
+
 **Why Flask?**
 
 - Flask is a web framework, a set of tools to build a web application
@@ -35,3 +38,8 @@ MVC is a framework used for web development
 - Allows to integrate with HTML, CSS, JS
 - Allows to map HTTP requests to Python functions
 - Allows to set API path as a URL to view in the browser
+
+### Setup
+
+- Ensure it is installed with ``pip install flask``
+- Run the flask app with ``flask run``
