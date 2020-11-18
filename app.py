@@ -1,5 +1,4 @@
-from flask import Flask, jsonify, redirect, url_for, render_template
-
+from flask import Flask, jsonify, redirect, url_for, render_template, request, session
 # create an instance of our app, with __name__ passed as arg
 
 app = Flask(__name__)
@@ -55,8 +54,32 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/login/")
+users = []
+users.append({"user_id": 1, "username": "ldaijiw", "password": "test"})
+users.append({"user_id": 2, "username": "admin", "password": "admin"})
+
+@app.route("/login/", methods = ["GET", "POST"])
 def login():
+    if request.method == "POST":
+        print("POST")
+        #session.pop('user_id')
+        username = request.form['username']
+        password = request.form['password']
+
+        print(users)
+        print(username)
+        print(password)
+        user = [x for x in users if x["username"] == username][0]
+
+        print(user)
+
+        if user and user["password"] == password:
+            print(username)
+            # session['user_id'] = user.user_id
+            return redirect('/user/admin/')
+
+        return redirect(url_for('login'))
+
     return render_template("login.html")
 
 
